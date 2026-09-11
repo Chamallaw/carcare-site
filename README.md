@@ -10,18 +10,13 @@ Pages statiques requises par App Store Connect pour l'application **CarCare**.
 
 Aucune dépendance, aucune étape de build : ce sont des fichiers HTML/CSS statiques.
 
-## Avant la mise en ligne
+## Contact
 
-Remplacer l'adresse de contact utilisée comme espace réservé :
-
-```bash
-sed -i '' 's/contact@exemple\.com/VOTRE_ADRESSE/g' *.html
-```
-
-Vérifier qu'il n'en reste aucune :
+L'adresse d'assistance publiée sur le site est `contact.chamallaw@gmail.com`.
+Pour la changer :
 
 ```bash
-grep -rn "contact@exemple.com" *.html || echo "OK"
+sed -i '' 's/contact\.chamallaw@gmail\.com/NOUVELLE_ADRESSE/g' *.html
 ```
 
 ## Aperçu local
