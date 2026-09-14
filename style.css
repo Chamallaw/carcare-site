@@ -41,6 +41,12 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Les attributs width/height du HTML sont mappés par le navigateur sur les
+   propriétés CSS correspondantes. Fixer la seule largeur en CSS laisse donc
+   la hauteur de l'attribut s'appliquer telle quelle, et l'image est écrasée.
+   `height: auto` rend la main au ratio naturel. */
+img { max-width: 100%; height: auto; }
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -65,7 +71,7 @@ header {
 
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--text); }
-.mark { width: 32px; height: 32px; border-radius: var(--r-sm); display: block; }
+.mark { width: 32px; height: 32px; border-radius: var(--r-sm); display: block; flex-shrink: 0; }
 .brand b { font-family: var(--display); font-size: 16.5px; letter-spacing: -0.02em; }
 
 /* Navigation en contrôle segmenté, comme les onglets de l'application */
@@ -178,19 +184,20 @@ em { color: var(--text); font-style: italic; }
 /* Les captures sont recadrées sur la partie utile de l'écran (640x814 au
    lieu de 640x1387) : un écran d'iPhone entier est deux fois plus haut que
    large, ce qui imposait soit une carte démesurée, soit une image trop
-   petite pour qu'on y distingue quoi que ce soit. Affichées sur 240 px pour
-   un fichier de 640, elles restent nettes sur écran retina. */
+   petite pour qu'on y distingue quoi que ce soit. Affichées sur 280 px pour
+   un fichier de 640, elles gardent 2,3x la densité d'un écran standard. */
 .slide {
   flex: 0 0 100%;
   scroll-snap-align: center;
   display: grid;
-  grid-template-columns: 240px 1fr;
+  grid-template-columns: 280px 1fr;
   gap: 30px;
   align-items: center;
 }
 
 .slide img {
-  width: 240px;
+  width: 280px;
+  height: auto;
   display: block;
   border-radius: var(--r-md);
   border: 1px solid var(--border-strong);
@@ -408,7 +415,7 @@ footer a:hover { color: var(--primary); }
 /* ── Adaptations ──────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
   .slide { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 20px; }
-  .slide img { width: 264px; }
+  .slide img { width: 288px; }
   .slide-text p { max-width: 42ch; margin-inline: auto; }
   .carousel { padding: 22px 20px 16px; }
 }
