@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Assistance — CarCare</title>
-<meta name="description" content="Aide et contact pour l'application CarCare : questions fréquentes, signalement de problème, suppression de compte.">
+<meta name="description" content="Aide, questions fréquentes et contact pour l'application CarCare : échéances, notifications, photos, export PDF, transfert de véhicule, compte et données.">
+<link rel="icon" href="img/icon.png">
+<link rel="apple-touch-icon" href="img/icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,7 +16,7 @@
 
 <header>
   <div class="wrap bar">
-    <a class="brand" href="index.html"><span class="mark">C</span><b>CarCare</b></a>
+    <a class="brand" href="index.html" aria-label="CarCare, accueil"><img class="mark" src="img/icon.png" alt=""><b>CarCare</b></a>
     <nav>
       <a href="index.html">Accueil</a>
       <a class="on" href="support.html">Assistance</a>
@@ -31,47 +33,207 @@
   <div class="card">
     <h3>Nous contacter</h3>
     <p>Adresse d'assistance : <a href="mailto:contact.chamallaw@gmail.com">contact.chamallaw@gmail.com</a></p>
-    <p>Pour signaler un problème, précisez si possible : le modèle d'iPhone, la version d'iOS, la version de l'application (visible dans Réglages → À propos) et les étapes qui reproduisent le souci.</p>
-    <a class="btn" href="mailto:contact.chamallaw@gmail.com?subject=Assistance%20CarCare">Envoyer un e-mail</a>
+    <p>Pour signaler un problème, précisez si possible : le modèle d'iPhone, la version d'iOS, la version de l'application (visible dans <strong>Paramètres → À propos</strong>) et les étapes qui reproduisent le souci.</p>
+    <p class="btns"><a class="btn" href="mailto:contact.chamallaw@gmail.com">Envoyer un e-mail</a></p>
   </div>
 
-  <h2>Questions fréquentes</h2>
+  <h2 id="demarrer">Premiers pas</h2>
 
-  <h3>Comment ajouter un véhicule ?</h3>
-  <p>Depuis l'écran <em>Mon garage</em>, appuyez sur <em>Ajouter un véhicule</em>, puis renseignez au minimum la marque, le modèle et l'immatriculation. Les autres champs sont facultatifs et modifiables à tout moment.</p>
+  <div class="faq">
+    <details>
+      <summary>Comment ajouter un véhicule ?</summary>
+      <div class="answer">
+        <p>Depuis l'écran <strong>Mon garage</strong>, appuyez sur <strong>Ajouter un véhicule</strong>, puis renseignez au minimum la marque, le modèle et l'immatriculation. Les autres champs — motorisation, carburant, boîte, couleur, kilométrage — sont facultatifs et modifiables à tout moment.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment enregistrer un entretien ?</summary>
+      <div class="answer">
+        <p>Ouvrez la fiche du véhicule, onglet <strong>Historique</strong>, puis <strong>+ Entretien</strong>. Renseignez la date, le kilométrage, le coût, le garage, les pièces posées, et ajoutez la photo de la facture si vous le souhaitez.</p>
+        <p>Le kilométrage saisi met à jour celui du véhicule et recalcule les échéances suivantes.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment définir les entretiens à suivre ?</summary>
+      <div class="answer">
+        <p>Dans l'onglet <strong>Config</strong> d'un véhicule, créez des types d'entretien avec leur périodicité : en mois, en kilomètres, ou les deux. Vous pouvez charger un jeu de types courants — vidange, filtres, contrôle technique, pneus, distribution — d'un seul geste, puis l'ajuster.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment essayer l'application rapidement ?</summary>
+      <div class="answer">
+        <p><strong>Paramètres → Données → Charger les données de démo</strong> remplit l'application avec deux véhicules, leur historique, des garages, des échéances, des tâches et des références. C'est le moyen le plus rapide de voir à quoi ressemble un carnet rempli.</p>
+        <p>Attention : cette action <strong>remplace</strong> vos données existantes. À n'utiliser que sur un compte de découverte.</p>
+      </div>
+    </details>
+    <details>
+      <summary>À quoi servent les onglets « Todo » et « Références » ?</summary>
+      <div class="answer">
+        <p><strong>Todo</strong> recueille ce qui reste à faire sur le véhicule, avec un niveau d'urgence : un bruit suspect, un niveau à vérifier. Une tâche terminée peut être basculée dans l'historique.</p>
+        <p><strong>Références</strong> garde les données techniques que l'on cherche toujours au mauvais moment : pression des pneus avant et arrière, référence du filtre à air, viscosité et quantité d'huile moteur.</p>
+      </div>
+    </details>
+  </div>
 
-  <h3>Comment fonctionnent les rappels d'entretien ?</h3>
-  <p>Dans l'onglet <em>Config</em> d'un véhicule, définissez des types d'entretien avec leur périodicité (en mois et/ou en kilomètres). L'application calcule alors les échéances à partir de votre dernier entretien enregistré et de votre kilométrage, et vous notifie à l'approche. Vous pouvez charger un jeu de types courants d'un seul geste.</p>
+  <h2 id="echeances">Échéances et notifications</h2>
 
-  <h3>Je ne reçois aucune notification</h3>
-  <ol>
-    <li>Vérifiez que les notifications sont autorisées : <em>Réglages iOS → CarCare → Notifications</em>.</li>
-    <li>Dans l'application, <em>Paramètres → Notifications</em>, vérifiez que l'interrupteur général et celui du véhicule concerné sont activés.</li>
-    <li>Utilisez <em>Paramètres → Données → Tester le service notification</em> : une notification de test doit arriver immédiatement.</li>
-  </ol>
+  <div class="faq">
+    <details>
+      <summary>Comment les échéances sont-elles calculées ?</summary>
+      <div class="answer">
+        <p>L'application part du <strong>dernier entretien enregistré</strong> pour ce type et du <strong>kilométrage courant</strong> du véhicule, puis applique la périodicité que vous avez définie.</p>
+        <p>Quand un type d'entretien a une périodicité en mois <em>et</em> en kilomètres, c'est <strong>la première des deux échéances à tomber</strong> qui compte. Une vidange « 12 mois ou 15 000 km » sera donc due au bout d'un an même si vous avez peu roulé.</p>
+        <p>Un type sans entretien enregistré ni intervalle configuré reste affiché, mais sans date : l'application ne devine rien à votre place.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Je ne reçois aucune notification</summary>
+      <div class="answer">
+        <ul>
+          <li>Vérifiez que les notifications sont autorisées : <strong>Réglages iOS → CarCare → Notifications</strong>.</li>
+          <li>Dans l'application, <strong>Paramètres → Notifications</strong> : l'interrupteur général et celui du véhicule concerné doivent être activés.</li>
+          <li>Utilisez <strong>Paramètres → Données → Tester le service notification</strong> : une notification de test doit arriver immédiatement. Si elle arrive, le service fonctionne et le problème vient du réglage d'un véhicule ou d'un type d'entretien.</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary>Puis-je couper les rappels d'un seul véhicule ?</summary>
+      <div class="answer">
+        <p>Oui. <strong>Paramètres → Notifications</strong> propose un interrupteur par véhicule, en plus de l'interrupteur général. Chaque type d'entretien a également son propre réglage dans l'onglet <strong>Config</strong> du véhicule.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Combien de temps à l'avance suis-je prévenu ?</summary>
+      <div class="answer">
+        <p>C'est réglable pour chaque type d'entretien, séparément en jours et en kilomètres — par exemple 30 jours et 1 000 km avant l'échéance pour une vidange, 60 jours pour un contrôle technique.</p>
+      </div>
+    </details>
+  </div>
 
-  <h3>Mes photos apparaissent vides</h3>
-  <p>Ce problème pouvait survenir après une mise à jour de l'application sur d'anciennes versions. Il est corrigé : les photos sont désormais retrouvées automatiquement. Si une photo reste vide, supprimez-la et rajoutez-la.</p>
+  <h2 id="photos">Photos et factures</h2>
 
-  <h3>Mes photos sont-elles envoyées sur Internet ?</h3>
-  <p>Non. Les photos de véhicules et de factures restent sur votre appareil et ne sont téléversées nulle part. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+  <div class="faq">
+    <details>
+      <summary>Mes photos sont-elles envoyées sur Internet ?</summary>
+      <div class="answer">
+        <p>Non. Les photos de véhicules et de factures sont conservées dans l'espace de stockage privé de l'application et ne sont téléversées nulle part. Elles ne sont pas non plus transmises lors d'un transfert de véhicule. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment fonctionne le scan de facture ?</summary>
+      <div class="answer">
+        <p>Dans le formulaire d'entretien, <strong>Scanner une facture</strong> ouvre l'appareil photo, détecte le document et en extrait le texte pour pré-remplir les champs. La reconnaissance de texte s'exécute <strong>entièrement sur l'appareil</strong> : l'image n'est envoyée à aucun service distant.</p>
+        <p>Le résultat reste une aide à la saisie — relisez les montants avant d'enregistrer.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Mes photos apparaissent vides</summary>
+      <div class="answer">
+        <p>Ce problème pouvait survenir après une mise à jour de l'application, sur d'anciennes versions : le chemin des photos changeait à chaque installation. Il est corrigé — les photos sont désormais retrouvées automatiquement, sans manipulation de votre part.</p>
+        <p>Si une photo reste vide malgré tout, supprimez-la et rajoutez-la.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Combien de photos puis-je ajouter ?</summary>
+      <div class="answer">
+        <p>Jusqu'à cinq photos par véhicule. La fiche affiche un compteur, et l'application vous prévient quand la limite est atteinte.</p>
+      </div>
+    </details>
+  </div>
 
-  <h3>Comment récupérer mon carnet d'entretien ?</h3>
-  <p>Sur la fiche d'un véhicule, utilisez <em>Partager PDF</em> pour générer un carnet complet (informations, historique, références). C'est aussi le moyen le plus simple de transmettre l'historique lors d'une revente.</p>
+  <h2 id="carnet">Carnet, export et revente</h2>
 
-  <h3>Comment transférer un véhicule à quelqu'un ?</h3>
-  <p>Depuis la fiche du véhicule, choisissez la fonction de transfert et indiquez l'adresse e-mail du destinataire — il doit déjà posséder un compte CarCare. Il recevra la demande dans son application et devra l'accepter. Les photos ne sont pas transmises.</p>
+  <div class="faq">
+    <details>
+      <summary>Comment récupérer mon carnet d'entretien ?</summary>
+      <div class="answer">
+        <p>Sur la fiche d'un véhicule, <strong>Partager PDF</strong> génère un carnet complet : informations du véhicule, historique daté des interventions et références techniques. <strong>Imprimer</strong> l'envoie directement vers une imprimante.</p>
+        <p>C'est aussi le moyen le plus simple de transmettre l'historique lors d'une revente, sans que l'acheteur ait besoin de l'application.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment transférer un véhicule à quelqu'un ?</summary>
+      <div class="answer">
+        <p>Depuis la fiche du véhicule, choisissez <strong>Transférer ce véhicule</strong> et indiquez l'adresse e-mail exacte du destinataire — il doit déjà posséder un compte CarCare. Il reçoit la demande dans son application et doit l'accepter ; il peut aussi la refuser.</p>
+        <p>Il n'existe aucun annuaire et aucune recherche d'utilisateur : sans l'adresse exacte, personne ne peut être trouvé. Les photos ne sont pas transmises.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Que devient un véhicule que j'ai vendu ?</summary>
+      <div class="answer">
+        <p>Une fois le transfert accepté, le véhicule quitte vos véhicules actifs et rejoint l'onglet <strong>Anciens</strong>. Il ne compte plus dans votre nombre de véhicules actifs, et vous en gardez la trace.</p>
+      </div>
+    </details>
+  </div>
 
-  <h3>Comment supprimer mes données ou mon compte ?</h3>
-  <ul>
-    <li><strong>Effacer vos contenus en gardant votre compte</strong> : <em>Paramètres → Données → Réinitialiser les données</em>.</li>
-    <li><strong>Supprimer votre compte et toutes vos données</strong> : <em>Paramètres → Compte → Supprimer mon compte</em>. Après une double confirmation, la suppression est immédiate et définitive — compte, données synchronisées et photos locales.</li>
-  </ul>
-  <p>Pour des raisons de sécurité, Firebase exige une connexion récente pour supprimer un compte. Si l'application vous le demande, déconnectez-vous, reconnectez-vous, puis relancez l'opération.</p>
-  <p>Si vous ne parvenez pas à accéder à l'application, écrivez à <a href="mailto:contact.chamallaw@gmail.com">contact.chamallaw@gmail.com</a>.</p>
+  <h2 id="compte">Compte et données</h2>
 
-  <h3>L'application fonctionne-t-elle sur iPad ?</h3>
-  <p>CarCare est conçue pour iPhone. Elle s'installe et fonctionne sur iPad en mode de compatibilité iPhone.</p>
+  <div class="faq">
+    <details>
+      <summary>Pourquoi seulement Apple et Google pour se connecter ?</summary>
+      <div class="answer">
+        <p>Parce que c'est plus sûr pour vous : il n'y a aucun mot de passe à créer, à retenir ni à faire fuiter, et nous n'en recevons ni n'en stockons jamais aucun. L'authentification est entièrement déléguée à Apple ou à Google.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Que se passe-t-il si je change de téléphone ?</summary>
+      <div class="answer">
+        <p>Vos véhicules, entretiens, tâches, références et garages reviennent dès que vous vous reconnectez avec le même compte : ils sont synchronisés.</p>
+        <p>Les photos, elles, sont stockées sur l'appareil. Elles suivent une restauration depuis une sauvegarde iCloud ou iTunes, mais <strong>pas</strong> une installation neuve sur un téléphone vierge. Avant de changer de téléphone, exportez vos carnets en PDF si vous tenez aux images de factures.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment supprimer mes données ou mon compte ?</summary>
+      <div class="answer">
+        <ul>
+          <li><strong>Effacer vos contenus en gardant votre compte</strong> : Paramètres → Données → Réinitialiser les données.</li>
+          <li><strong>Supprimer votre compte et toutes vos données</strong> : Paramètres → Compte → Supprimer mon compte. Après une double confirmation, la suppression est immédiate et définitive — compte, données synchronisées et photos locales.</li>
+        </ul>
+        <p>Pour des raisons de sécurité, la suppression d'un compte exige une connexion récente. Si l'application vous le demande, reconnectez-vous puis relancez l'opération.</p>
+        <p>Si vous ne parvenez pas à accéder à l'application, écrivez à <a href="mailto:contact.chamallaw@gmail.com">contact.chamallaw@gmail.com</a> : la demande sera traitée sous 30 jours.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Mes données sont-elles vendues ou analysées ?</summary>
+      <div class="answer">
+        <p>Non. L'application n'intègre aucune publicité, aucun traceur et aucun outil de mesure d'audience. Aucune donnée n'est vendue, louée ni transmise à des fins commerciales. Le détail complet figure dans la <a href="privacy.html">politique de confidentialité</a>.</p>
+      </div>
+    </details>
+  </div>
+
+  <h2 id="reglages">Compatibilité et réglages</h2>
+
+  <div class="faq">
+    <details>
+      <summary>Combien coûte l'application ?</summary>
+      <div class="answer">
+        <p>Rien. Il n'y a ni achat intégré, ni abonnement, ni publicité.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Combien de véhicules puis-je suivre ?</summary>
+      <div class="answer">
+        <p>Deux véhicules actifs. Les véhicules transférés à quelqu'un d'autre passent dans <strong>Anciens</strong> et ne comptent plus dans ce total.</p>
+        <p>Si vous atteignez la limite, ouvrez la fiche d'un véhicule que vous ne possédez plus : vous pouvez le transférer à son nouveau propriétaire ou le supprimer, et la place se libère aussitôt.</p>
+      </div>
+    </details>
+    <details>
+      <summary>L'application fonctionne-t-elle sur iPad ?</summary>
+      <div class="answer">
+        <p>CarCare est conçue pour iPhone. Elle s'installe et fonctionne sur iPad en mode de compatibilité iPhone, mais l'affichage n'est pas optimisé pour le grand écran.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Comment changer la langue, le thème, la devise ou l'unité ?</summary>
+      <div class="answer">
+        <p><strong>Langue</strong> (français ou anglais) et <strong>thème</strong> (clair, sombre, ou automatique selon les réglages du téléphone) se règlent dans <strong>Paramètres → Apparence</strong>.</p>
+        <p><strong>Devise</strong> (€, $, £, CHF) et <strong>unité de distance</strong> (kilomètres ou miles) se choisissent véhicule par véhicule, dans la fiche du véhicule.</p>
+      </div>
+    </details>
+  </div>
+
+  <h2 id="autre">Vous n'avez pas trouvé ?</h2>
+  <p>Écrivez à <a href="mailto:contact.chamallaw@gmail.com">contact.chamallaw@gmail.com</a> en décrivant ce que vous cherchiez à faire. Les questions reçues alimentent cette page.</p>
 
 </main>
 

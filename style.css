@@ -3,12 +3,17 @@
 :root {
   --bg: #0f1115;
   --surface: #16191f;
+  --surface-2: #1c2027;
   --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.13);
   --text: #f2f4f8;
   --text-2: #9aa3b2;
   --text-3: #6b7383;
-  --accent: #b5abfc;
-  --accent-2: #8f7fe8;
+  /* Bleu de l'interface de l'app : le site et les captures parlent la même langue. */
+  --accent: #4d8dff;
+  --accent-2: #3b78f0;
+  --success: #3ecf8e;
+  --warning: #f5a623;
   --radius: 16px;
 }
 
@@ -30,7 +35,7 @@ body {
 /* ── En-tête ─────────────────────────────────────────────── */
 header {
   border-bottom: 1px solid var(--border);
-  padding: 22px 0;
+  padding: 18px 0;
   position: sticky;
   top: 0;
   background: rgba(15, 17, 21, 0.88);
@@ -44,10 +49,7 @@ header {
 
 .mark {
   width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px;
-  color: #15131f;
+  display: block; border: 1px solid var(--border);
 }
 
 .brand b { font-family: 'Space Grotesk', sans-serif; font-size: 18px; letter-spacing: -0.02em; }
@@ -61,17 +63,17 @@ main { padding: 48px 0 80px; }
 
 h1 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(28px, 5vw, 38px);
+  font-size: clamp(28px, 5vw, 40px);
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  line-height: 1.12;
+  margin-bottom: 12px;
 }
 
 h2 {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 20px;
+  font-size: 21px;
   letter-spacing: -0.02em;
-  margin: 40px 0 12px;
+  margin: 46px 0 12px;
   padding-top: 8px;
 }
 
@@ -85,10 +87,33 @@ a { color: var(--accent); }
 
 strong { color: var(--text); font-weight: 700; }
 
-.lead { font-size: 17px; color: var(--text-2); margin-bottom: 6px; }
-
+.lead { font-size: 17.5px; color: var(--text-2); margin-bottom: 6px; }
 .meta { color: var(--text-3); font-size: 13px; margin-bottom: 34px; }
+.section-intro { margin-bottom: 20px; }
 
+/* ── Héros ───────────────────────────────────────────────── */
+/* L'icône est posée au-dessus du titre : tout le contenu de la page partage
+   ainsi un seul bord gauche. */
+.hero-icon {
+  width: 72px; height: 72px; border-radius: 19px;
+  border: 1px solid var(--border-strong);
+  display: block; margin-bottom: 18px;
+}
+
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 13px; font-weight: 600;
+  color: var(--text-2);
+  margin-bottom: 22px;
+}
+
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--warning); flex-shrink: 0; }
+
+/* ── Cartes ──────────────────────────────────────────────── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -101,17 +126,128 @@ strong { color: var(--text); font-weight: 700; }
 .card p:last-child, .card ul:last-child, .card li:last-child { margin-bottom: 0; }
 
 .ok { border-color: rgba(62, 207, 142, 0.28); background: rgba(62, 207, 142, 0.06); }
-.ok h3 { color: #3ecf8e; }
+.ok h3 { color: var(--success); }
 
+/* ── Grille de fonctions ─────────────────────────────────── */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 22px 0; }
+
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+
+.feature .ico { font-size: 21px; line-height: 1; display: block; margin-bottom: 10px; }
+.feature h3 { margin: 0 0 4px; font-size: 15px; }
+.feature p { font-size: 14.5px; margin: 0; line-height: 1.55; }
+
+/* ── Étapes ──────────────────────────────────────────────── */
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 22px 0; }
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 46px;
+  margin-bottom: 18px;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 1px;
+  width: 30px; height: 30px; border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.steps b { display: block; color: var(--text); font-size: 15px; margin-bottom: 2px; }
+
+/* ── Galerie de captures ─────────────────────────────────── */
+/* Défilement horizontal à l'intérieur de la colonne de texte : le premier
+   cliché s'aligne sur les paragraphes, les suivants débordent vers la droite. */
+.shots {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  padding: 6px 0 22px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.shots figure { flex: 0 0 232px; scroll-snap-align: center; margin: 0; }
+
+.shots img {
+  width: 232px;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+
+.shots figcaption {
+  color: var(--text-3);
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+
+.shots figcaption b { display: block; color: var(--text-2); font-weight: 700; }
+
+/* ── Tableaux ────────────────────────────────────────────── */
 table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14.5px; }
 th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
 th { color: var(--text); font-weight: 700; font-size: 13px; }
 td { color: var(--text-2); }
+td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
 
+/* ── FAQ ─────────────────────────────────────────────────── */
+.faq { margin: 20px 0; }
+
+.faq details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 48px 16px 20px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  position: relative;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: '+';
+  position: absolute; right: 20px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 19px; font-weight: 400;
+  color: var(--text-3);
+  transition: transform 0.15s ease;
+}
+
+.faq details[open] summary::after { content: '−'; color: var(--accent); }
+.faq summary:hover { color: var(--accent); }
+
+.faq .answer { padding: 0 20px 18px; }
+.faq .answer > :last-child { margin-bottom: 0; }
+.faq .answer p, .faq .answer li { font-size: 14.5px; }
+
+/* ── Boutons ─────────────────────────────────────────────── */
 .btn {
   display: inline-block;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #15131f;
+  color: #fff;
   font-weight: 700;
   text-decoration: none;
   padding: 13px 22px;
@@ -119,6 +255,15 @@ td { color: var(--text-2); }
   margin-top: 8px;
 }
 
+.btn-ghost {
+  background: none;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+}
+
+.btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+/* ── Pied de page ────────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--border);
   padding: 28px 0 44px;
@@ -129,7 +274,24 @@ footer {
 footer a { color: var(--text-2); text-decoration: none; }
 footer a:hover { color: var(--accent); }
 
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero { gap: 16px; }
+  .hero-icon { width: 62px; height: 62px; border-radius: 16px; }
+}
+
 @media (max-width: 540px) {
-  nav { gap: 14px; }
+  header { padding: 14px 0; }
+  nav { gap: 13px; }
+  nav a { font-size: 13.5px; }
   main { padding: 34px 0 60px; }
+  .shots figure, .shots img { flex-basis: 208px; width: 208px; }
+}
+
+/* Sous 430 px le nom ne tient plus à côté de la navigation : l'icône seule
+   sert de lien d'accueil, et l'en-tête reste sur une ligne. Le lien garde son
+   nom accessible grâce à l'aria-label porté par .brand. */
+@media (max-width: 430px) {
+  .brand b { display: none; }
+  .mark { width: 34px; height: 34px; border-radius: 10px; }
 }
