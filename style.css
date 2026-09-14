@@ -1,297 +1,422 @@
-/* CarCare — feuille de style commune (identité « Onyx ») */
+/* ─────────────────────────────────────────────────────────────────────────
+   CarCare — feuille de style commune.
+
+   Les valeurs viennent directement du thème « Onyx » de l'application
+   (src/theme/colors.ts et src/theme/index.ts) : mêmes surfaces, mêmes
+   rayons, même bleu, même hiérarchie typographique. Le site doit donner
+   l'impression d'être la même chose que l'app, pas un site à côté.
+   ───────────────────────────────────────────────────────────────────── */
 
 :root {
   --bg: #0f1115;
   --surface: #16191f;
   --surface-2: #1c2027;
-  --border: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.13);
+  --surface-3: #262b34;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+
   --text: #f2f4f8;
   --text-2: #9aa3b2;
   --text-3: #6b7383;
-  /* Bleu de l'interface de l'app : le site et les captures parlent la même langue. */
-  --accent: #4d8dff;
-  --accent-2: #3b78f0;
+
+  --primary: #4d8dff;
+  --primary-dark: #3b78f0;
+  --primary-light: rgba(77, 141, 255, 0.13);
   --success: #3ecf8e;
+  --success-light: rgba(62, 207, 142, 0.12);
   --warning: #f5a623;
-  --radius: 16px;
+  --warning-light: rgba(245, 166, 35, 0.12);
+  --danger: #ff5d5d;
+  --danger-light: rgba(255, 93, 93, 0.12);
+
+  /* Rayons repris de radius{} dans l'app */
+  --r-sm: 9px;
+  --r-md: 13px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+
+  --display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
-
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
+  font-family: var(--body);
+  font-size: 15.5px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-.wrap { max-width: 760px; margin: 0 auto; padding: 0 22px; }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 22px; }
 
-/* ── En-tête ─────────────────────────────────────────────── */
+/* ── En-tête ──────────────────────────────────────────────────────────── */
 header {
   border-bottom: 1px solid var(--border);
-  padding: 18px 0;
+  padding: 14px 0;
   position: sticky;
   top: 0;
-  background: rgba(15, 17, 21, 0.88);
-  backdrop-filter: blur(14px);
-  z-index: 10;
+  background: rgba(13, 15, 19, 0.92);
+  backdrop-filter: blur(16px);
+  z-index: 20;
 }
 
 .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--text); }
+.mark { width: 32px; height: 32px; border-radius: var(--r-sm); display: block; }
+.brand b { font-family: var(--display); font-size: 16.5px; letter-spacing: -0.02em; }
 
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
-
-.mark {
-  width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
-  display: block; border: 1px solid var(--border);
+/* Navigation en contrôle segmenté, comme les onglets de l'application */
+nav {
+  display: flex;
+  gap: 2px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 3px;
 }
 
-.brand b { font-family: 'Space Grotesk', sans-serif; font-size: 18px; letter-spacing: -0.02em; }
+nav a {
+  color: var(--text-2);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 13px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
 
-nav { display: flex; gap: 18px; flex-wrap: wrap; }
-nav a { color: var(--text-2); text-decoration: none; font-size: 14px; font-weight: 600; }
-nav a:hover, nav a.on { color: var(--accent); }
+nav a:hover { color: var(--text); }
+nav a.on { color: var(--text); background: var(--surface-3); }
 
-/* ── Contenu ─────────────────────────────────────────────── */
-main { padding: 48px 0 80px; }
+/* ── Rythme typographique ─────────────────────────────────────────────── */
+main { padding: 44px 0 80px; }
+
+/* Le libellé en petites capitales au-dessus d'un titre est la signature
+   de l'app (« IDENTITÉ », « MOTORISATION », « PHOTOS »). */
+.eyebrow {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin-bottom: 8px;
+}
 
 h1 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(28px, 5vw, 40px);
-  letter-spacing: -0.03em;
-  line-height: 1.12;
-  margin-bottom: 12px;
+  font-family: var(--display);
+  font-size: clamp(30px, 5.5vw, 42px);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  margin-bottom: 14px;
 }
 
+/* Les pages légales enchaînent des h2 numérotés sans intertitre : la marge
+   haute par défaut les espace. Dans une .section, c'est la section qui la
+   porte, juste au-dessus de son libellé en petites capitales. */
 h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 21px;
-  letter-spacing: -0.02em;
-  margin: 46px 0 12px;
-  padding-top: 8px;
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 52px 0 6px;
 }
 
-h3 { font-size: 15px; font-weight: 700; margin: 22px 0 6px; color: var(--text); }
+.section { margin-top: 58px; }
+.section h2 { margin-top: 0; }
 
-p, li { color: var(--text-2); margin-bottom: 12px; }
-ul, ol { padding-left: 22px; margin-bottom: 12px; }
-li { margin-bottom: 7px; }
+h3 { font-family: var(--display); font-size: 16px; font-weight: 700; letter-spacing: -0.015em; color: var(--text); margin-bottom: 5px; }
 
-a { color: var(--accent); }
-
+p, li { color: var(--text-2); margin-bottom: 11px; }
+ul, ol { padding-left: 21px; margin-bottom: 11px; }
+li { margin-bottom: 6px; }
+a { color: var(--primary); }
 strong { color: var(--text); font-weight: 700; }
+em { color: var(--text); font-style: italic; }
 
-.lead { font-size: 17.5px; color: var(--text-2); margin-bottom: 6px; }
-.meta { color: var(--text-3); font-size: 13px; margin-bottom: 34px; }
-.section-intro { margin-bottom: 20px; }
+.lead { font-size: 17px; color: var(--text-2); line-height: 1.55; }
+.meta { color: var(--text-3); font-size: 13px; margin-bottom: 30px; }
+.section-intro { color: var(--text-2); margin-bottom: 22px; }
 
-/* ── Héros ───────────────────────────────────────────────── */
-/* L'icône est posée au-dessus du titre : tout le contenu de la page partage
-   ainsi un seul bord gauche. */
-.hero-icon {
-  width: 72px; height: 72px; border-radius: 19px;
-  border: 1px solid var(--border-strong);
-  display: block; margin-bottom: 18px;
-}
-
+/* ── Pastille d'état, reprise des badges de l'app ─────────────────────── */
 .pill {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--surface-2);
-  border: 1px solid var(--border-strong);
+  background: var(--warning-light);
+  border: 1px solid rgba(245, 166, 35, 0.26);
   border-radius: 999px;
-  padding: 7px 14px;
-  font-size: 13px; font-weight: 600;
-  color: var(--text-2);
-  margin-bottom: 22px;
+  padding: 7px 15px 7px 13px;
+  font-size: 12.5px; font-weight: 600;
+  color: var(--warning);
+  margin-top: 20px;
 }
 
-.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--warning); flex-shrink: 0; }
+.dot-mark { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
 
-/* ── Cartes ──────────────────────────────────────────────── */
+/* ── Carrousel de captures ────────────────────────────────────────────── */
+.carousel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 22px 24px 16px;
+}
+
+.track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  gap: 40px;
+}
+
+.track::-webkit-scrollbar { display: none; }
+
+/* Les captures sont recadrées sur la partie utile de l'écran (640x814 au
+   lieu de 640x1387) : un écran d'iPhone entier est deux fois plus haut que
+   large, ce qui imposait soit une carte démesurée, soit une image trop
+   petite pour qu'on y distingue quoi que ce soit. Affichées sur 240 px pour
+   un fichier de 640, elles restent nettes sur écran retina. */
+.slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.slide img {
+  width: 240px;
+  display: block;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-strong);
+}
+
+.slide-text h3 { margin-bottom: 8px; font-size: 20px; }
+.slide-text p { font-size: 14.5px; line-height: 1.65; margin-bottom: 0; max-width: 38ch; }
+
+/* ── Commandes du carrousel ───────────────────────────────────────────── */
+.carousel-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.arrows { display: flex; gap: 8px; }
+
+.arrow {
+  width: 34px; height: 34px;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 15px; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--body);
+}
+
+.arrow:hover:not(:disabled) { background: var(--surface-3); color: var(--text); }
+.arrow:disabled { opacity: 0.3; cursor: default; }
+
+.dots { display: flex; gap: 7px; }
+
+.dot {
+  width: 7px; height: 7px; padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface-3);
+  cursor: pointer;
+  transition: background 0.15s ease, width 0.15s ease;
+}
+
+.dot[aria-current="true"] { background: var(--primary); width: 20px; border-radius: 4px; }
+
+.counter { font-size: 12.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+
+/* ── Cartes et listes groupées, comme les sections de l'app ───────────── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 22px;
-  margin: 20px 0;
+  border-radius: var(--r-lg);
+  padding: 19px 21px;
+  margin: 16px 0;
 }
 
 .card h3 { margin-top: 0; }
-.card p:last-child, .card ul:last-child, .card li:last-child { margin-bottom: 0; }
+.card > :last-child { margin-bottom: 0; }
 
-.ok { border-color: rgba(62, 207, 142, 0.28); background: rgba(62, 207, 142, 0.06); }
-.ok h3 { color: var(--success); }
+.card-ok { border-color: rgba(62, 207, 142, 0.26); background: var(--success-light); }
+.card-ok h3 { color: var(--success); }
 
-/* ── Grille de fonctions ─────────────────────────────────── */
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 22px 0; }
-
-.feature {
+/* Liste de lignes groupées dans une seule carte — le motif dominant de l'app */
+.rows {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin: 16px 0;
 }
 
-.feature .ico { font-size: 21px; line-height: 1; display: block; margin-bottom: 10px; }
-.feature h3 { margin: 0 0 4px; font-size: 15px; }
-.feature p { font-size: 14.5px; margin: 0; line-height: 1.55; }
+.row {
+  display: flex;
+  gap: 15px;
+  padding: 16px 19px;
+  border-bottom: 1px solid var(--border);
+}
 
-/* ── Étapes ──────────────────────────────────────────────── */
-.steps { counter-reset: step; list-style: none; padding: 0; margin: 22px 0; }
+.row:last-child { border-bottom: none; }
+
+.row-ico {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border-radius: var(--r-sm);
+  background: var(--primary-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+
+.row h3 { font-size: 15px; margin-bottom: 3px; }
+.row p { font-size: 13.5px; line-height: 1.5; margin-bottom: 0; color: var(--text-2); }
+
+/* ── Étapes numérotées ────────────────────────────────────────────────── */
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 16px 0; }
 
 .steps li {
   counter-increment: step;
   position: relative;
-  padding-left: 46px;
-  margin-bottom: 18px;
+  padding-left: 44px;
+  margin-bottom: 17px;
 }
 
 .steps li::before {
   content: counter(step);
-  position: absolute; left: 0; top: 1px;
-  width: 30px; height: 30px; border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
-  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 14px;
+  position: absolute; left: 0; top: 0;
+  width: 28px; height: 28px;
+  border-radius: var(--r-sm);
+  background: var(--primary-light);
+  border: 1px solid rgba(77, 141, 255, 0.3);
+  color: var(--primary);
+  font-family: var(--display); font-weight: 700; font-size: 13px;
   display: flex; align-items: center; justify-content: center;
 }
 
-.steps b { display: block; color: var(--text); font-size: 15px; margin-bottom: 2px; }
+.steps b { display: block; color: var(--text); font-size: 15px; margin-bottom: 2px; font-family: var(--display); letter-spacing: -0.01em; }
+.steps li { color: var(--text-2); font-size: 14.5px; }
 
-/* ── Galerie de captures ─────────────────────────────────── */
-/* Défilement horizontal à l'intérieur de la colonne de texte : le premier
-   cliché s'aligne sur les paragraphes, les suivants débordent vers la droite. */
-.shots {
-  display: flex;
-  gap: 18px;
-  overflow-x: auto;
-  padding: 6px 0 22px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-}
-
-.shots figure { flex: 0 0 232px; scroll-snap-align: center; margin: 0; }
-
-.shots img {
-  width: 232px;
-  display: block;
-  border-radius: 20px;
-  border: 1px solid var(--border-strong);
+/* ── Tableaux ─────────────────────────────────────────────────────────── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
   background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
 }
 
-.shots figcaption {
-  color: var(--text-3);
-  font-size: 13px;
-  text-align: center;
-  margin-top: 10px;
-  line-height: 1.45;
-}
-
-.shots figcaption b { display: block; color: var(--text-2); font-weight: 700; }
-
-/* ── Tableaux ────────────────────────────────────────────── */
-table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 14.5px; }
-th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
-th { color: var(--text); font-weight: 700; font-size: 13px; }
+th, td { text-align: left; padding: 12px 19px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tr:last-child td { border-bottom: none; }
+th { color: var(--text); font-weight: 700; font-size: 12.5px; }
 td { color: var(--text-2); }
-td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; }
+td:first-child { color: var(--text); font-weight: 600; white-space: nowrap; width: 1%; }
 
-/* ── FAQ ─────────────────────────────────────────────────── */
-.faq { margin: 20px 0; }
+/* ── FAQ ──────────────────────────────────────────────────────────────── */
+.faq { margin: 16px 0; }
 
 .faq details {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  margin-bottom: 10px;
+  border-radius: var(--r-md);
+  margin-bottom: 8px;
   overflow: hidden;
 }
+
+.faq details[open] { border-color: var(--border-strong); }
 
 .faq summary {
   cursor: pointer;
   list-style: none;
-  padding: 16px 48px 16px 20px;
+  padding: 15px 46px 15px 19px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--text);
   position: relative;
+  font-family: var(--display);
+  letter-spacing: -0.01em;
 }
 
 .faq summary::-webkit-details-marker { display: none; }
 
 .faq summary::after {
-  content: '+';
-  position: absolute; right: 20px; top: 50%;
-  transform: translateY(-50%);
-  font-size: 19px; font-weight: 400;
-  color: var(--text-3);
-  transition: transform 0.15s ease;
+  content: '';
+  position: absolute; right: 19px; top: 50%;
+  width: 8px; height: 8px;
+  border-right: 1.8px solid var(--text-3);
+  border-bottom: 1.8px solid var(--text-3);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.18s ease, border-color 0.18s ease;
 }
 
-.faq details[open] summary::after { content: '−'; color: var(--accent); }
-.faq summary:hover { color: var(--accent); }
+.faq details[open] summary::after {
+  transform: translateY(-20%) rotate(-135deg);
+  border-color: var(--primary);
+}
 
-.faq .answer { padding: 0 20px 18px; }
+.faq summary:hover { color: var(--primary); }
+.faq .answer { padding: 0 19px 17px; }
 .faq .answer > :last-child { margin-bottom: 0; }
-.faq .answer p, .faq .answer li { font-size: 14.5px; }
+.faq .answer p, .faq .answer li { font-size: 14px; }
 
-/* ── Boutons ─────────────────────────────────────────────── */
+/* ── Boutons ──────────────────────────────────────────────────────────── */
 .btn {
   display: inline-block;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background: linear-gradient(135deg, #5b97ff, var(--primary-dark));
   color: #fff;
   font-weight: 700;
+  font-size: 14.5px;
   text-decoration: none;
-  padding: 13px 22px;
-  border-radius: 13px;
-  margin-top: 8px;
+  padding: 12px 21px;
+  border-radius: var(--r-md);
 }
 
 .btn-ghost {
-  background: none;
+  background: var(--surface-2);
   border: 1px solid var(--border-strong);
   color: var(--text);
 }
 
-.btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 14px; }
 
-/* ── Pied de page ────────────────────────────────────────── */
+/* ── Pied de page ─────────────────────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 28px 0 44px;
+  padding: 26px 0 44px;
   color: var(--text-3);
-  font-size: 13.5px;
+  font-size: 13px;
 }
 
 footer a { color: var(--text-2); text-decoration: none; }
-footer a:hover { color: var(--accent); }
+footer a:hover { color: var(--primary); }
 
-@media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; }
-  .hero { gap: 16px; }
-  .hero-icon { width: 62px; height: 62px; border-radius: 16px; }
+/* ── Adaptations ──────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .slide { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 20px; }
+  .slide img { width: 264px; }
+  .slide-text p { max-width: 42ch; margin-inline: auto; }
+  .carousel { padding: 22px 20px 16px; }
 }
 
-@media (max-width: 540px) {
-  header { padding: 14px 0; }
-  nav { gap: 13px; }
-  nav a { font-size: 13.5px; }
-  main { padding: 34px 0 60px; }
-  .shots figure, .shots img { flex-basis: 208px; width: 208px; }
-}
-
-/* Sous 430 px le nom ne tient plus à côté de la navigation : l'icône seule
-   sert de lien d'accueil, et l'en-tête reste sur une ligne. Le lien garde son
-   nom accessible grâce à l'aria-label porté par .brand. */
-@media (max-width: 430px) {
+@media (max-width: 560px) {
+  main { padding: 32px 0 60px; }
+  .section { margin-top: 46px; }
+  nav a { padding: 6px 10px; font-size: 12.5px; }
   .brand b { display: none; }
-  .mark { width: 34px; height: 34px; border-radius: 10px; }
+  .counter { display: none; }
 }

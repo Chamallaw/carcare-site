@@ -31,191 +31,221 @@
   </div>
 </header>
 
-<main>
+<main class="wrap">
 
-<div class="wrap">
-  <img class="hero-icon" src="img/icon.png" alt="Icône de l'application CarCare">
+  <span class="eyebrow">Application iPhone</span>
   <h1>Le carnet d'entretien<br>de vos véhicules.</h1>
-
   <p class="lead">CarCare conserve l'historique de vos entretiens, calcule les échéances à partir du temps <em>et</em> du kilométrage, et vous prévient avant qu'elles ne tombent — voiture, moto, utilitaire.</p>
   <p>À la revente, un carnet complet en PDF remplace la boîte à chaussures pleine de factures.</p>
+  <p><span class="pill"><span class="dot-mark"></span> En cours de validation sur l'App Store</span></p>
 
-  <p><span class="pill"><span class="dot"></span> Application iPhone — en cours de validation sur l'App Store</span></p>
-  <h2 id="apercu">L'application en images</h2>
-  <p class="section-intro">Captures réelles, thème sombre. L'application suit aussi le thème clair de votre iPhone. Faites défiler pour voir la suite.</p>
+  <section class="section">
+    <span class="eyebrow">Aperçu</span>
+    <h2>L'application en images</h2>
+    <p class="section-intro">Captures réelles, en thème sombre. L'application suit aussi le thème clair de votre iPhone.</p>
 
-  <div class="shots">
-  <figure>
-    <img src="img/shots/garage.jpg" alt="Écran d'accueil « Mon garage » listant les véhicules et signalant un entretien en retard" loading="lazy" width="640" height="1387">
-    <figcaption><b>Mon garage</b>Le véhicule à la une, son prochain entretien, et ce qui est en retard.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/echeances.jpg" alt="Liste des échéances d'un véhicule avec un entretien en retard et les suivants à jour" loading="lazy" width="640" height="1387">
-    <figcaption><b>Échéances</b>En retard, bientôt dû, à jour — avec la date et le kilométrage visés.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/historique.jpg" alt="Historique d'entretien d'un véhicule avec le total des dépenses" loading="lazy" width="640" height="1387">
-    <figcaption><b>Historique</b>Chaque intervention : date, kilométrage, coût, garage, pièces.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/fiche.jpg" alt="Fiche d'un véhicule montrant la motorisation, le kilométrage et les actions : partager le PDF, imprimer, transférer" loading="lazy" width="640" height="1387">
-    <figcaption><b>Fiche véhicule</b>Motorisation, kilométrage, puis PDF, impression ou transfert.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/config.jpg" alt="Configuration des types d'entretien avec leur périodicité en mois et en kilomètres" loading="lazy" width="640" height="1387">
-    <figcaption><b>Types d'entretien</b>Périodicité en mois, en kilomètres, ou les deux.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/references.jpg" alt="Références techniques d'un véhicule : pressions des pneus, filtre, huile moteur" loading="lazy" width="640" height="1387">
-    <figcaption><b>Références</b>Pressions, référence de filtre, viscosité d'huile — sous la main.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/todo.jpg" alt="Liste de tâches à faire sur un véhicule avec des niveaux d'urgence" loading="lazy" width="640" height="1387">
-    <figcaption><b>À faire</b>Le bruit suspect noté aujourd'hui, traité au prochain passage.</figcaption>
-  </figure>
-  <figure>
-    <img src="img/shots/garages.jpg" alt="Carnet d'adresses des garages et prestataires" loading="lazy" width="640" height="1387">
-    <figcaption><b>Garages</b>Vos prestataires, rattachés aux entretiens qu'ils ont réalisés.</figcaption>
-  </figure>
-  </div>
+    <div class="carousel" data-carousel>
+      <div class="track" data-track tabindex="0" role="group" aria-roledescription="carrousel" aria-label="Captures d'écran de l'application">
 
-  <h2 id="fonctions">Ce que fait l'application</h2>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="1 sur 8 : Mon garage">
+          <img src="img/shots/garage.jpg" alt="Écran d'accueil « Mon garage » : le véhicule à la une avec sa photo, son kilométrage et une alerte d'entretien en retard." width="640" height="814">
+          <div class="slide-text">
+            <span class="eyebrow">Accueil</span>
+            <h3>Mon garage</h3>
+            <p>Le véhicule à la une, sa photo, son kilométrage et ce qui cloche. Les autres véhicules suivent, avec leur état d'un coup d'œil : à jour, bientôt dû, en retard.</p>
+          </div>
+        </div>
 
-  <div class="grid">
-    <div class="feature">
-      <span class="ico">🚗</span>
-      <h3>Suivi multi-véhicules</h3>
-      <p>Voiture, moto, utilitaire. Fiche complète : identité, motorisation, kilométrage, photos.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">🔧</span>
-      <h3>Historique d'entretien</h3>
-      <p>Date, kilométrage, coût, garage, pièces posées, commentaire et photo de la facture.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">⏰</span>
-      <h3>Échéances automatiques</h3>
-      <p>Calculées en mois <em>et</em> en kilomètres. La première des deux échues déclenche l'alerte.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">🔔</span>
-      <h3>Rappels</h3>
-      <p>Notification avant la date ou le kilométrage, avec un préavis réglable par type d'entretien.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">📷</span>
-      <h3>Scan de factures</h3>
-      <p>La reconnaissance de texte tourne <strong>sur l'appareil</strong>. Aucune image n'est envoyée ailleurs.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">📄</span>
-      <h3>Export PDF</h3>
-      <p>Un carnet complet à partager ou imprimer. L'argument qui rassure un acheteur.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">📋</span>
-      <h3>Tâches et références</h3>
-      <p>Ce qui reste à faire, et les données techniques du véhicule : pressions, filtres, huile.</p>
-    </div>
-    <div class="feature">
-      <span class="ico">🤝</span>
-      <h3>Transfert de véhicule</h3>
-      <p>Le jour de la vente, cédez la fiche et son historique au nouveau propriétaire.</p>
-    </div>
-  </div>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="2 sur 8 : Échéances">
+          <img src="img/shots/echeances.jpg" alt="Liste des échéances d'un véhicule : un entretien en retard en rouge, les suivants à jour en vert." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">Échéances</span>
+            <h3>Ce qui arrive à terme</h3>
+            <p>Chaque entretien affiche sa prochaine date et son prochain kilométrage. La première des deux échéances à tomber fait basculer la pastille en « bientôt », puis en « en retard ».</p>
+          </div>
+        </div>
 
-  <h2 id="demarrer">Comment ça marche</h2>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="3 sur 8 : Historique">
+          <img src="img/shots/historique.jpg" alt="Historique d'entretien d'un véhicule avec le total des dépenses et le détail de chaque intervention." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">Historique</span>
+            <h3>Tout ce qui a été fait</h3>
+            <p>Date, kilométrage, coût, garage, pièces posées et commentaire pour chaque intervention — plus le total dépensé sur le véhicule, calculé au fil de l'eau.</p>
+          </div>
+        </div>
 
-  <ol class="steps">
-    <li>
-      <b>Créez votre compte en deux touches</b>
-      Connexion avec Apple ou Google. Ni mot de passe à retenir, ni formulaire à remplir.
-    </li>
-    <li>
-      <b>Ajoutez un véhicule</b>
-      Marque, modèle, immatriculation, kilométrage. Le reste est facultatif et se complète plus tard.
-    </li>
-    <li>
-      <b>Définissez ses entretiens</b>
-      Vidange tous les 12 mois ou 15 000 km, contrôle technique tous les 2 ans… Un jeu de types courants se charge d'un seul geste.
-    </li>
-    <li>
-      <b>Enregistrez ce que vous faites</b>
-      Chaque intervention met à jour le kilométrage et recalcule les échéances suivantes.
-    </li>
-    <li>
-      <b>Laissez l'application vous prévenir</b>
-      Elle vous rappelle ce qui arrive à terme, et vous sort le carnet PDF quand vous en avez besoin.
-    </li>
-  </ol>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="4 sur 8 : Types d'entretien">
+          <img src="img/shots/config.jpg" alt="Configuration des types d'entretien : vidange tous les 12 mois ou 15 000 km, filtre à air, contrôle technique, pneus." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">Configuration</span>
+            <h3>Vos règles, pas les nôtres</h3>
+            <p>Vidange tous les 12 mois ou 15 000 km, contrôle technique tous les 2 ans, distribution à 120 000 km : vous définissez la périodicité et le préavis de chaque rappel.</p>
+          </div>
+        </div>
 
-  <h2 id="donnees">Vos données vous appartiennent</h2>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="5 sur 8 : Fiche véhicule">
+          <img src="img/shots/fiche.jpg" alt="Fiche véhicule : motorisation, kilométrage, puis les actions partager le PDF, imprimer, transférer et supprimer." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">Fiche véhicule</span>
+            <h3>Le carnet, en un geste</h3>
+            <p>Motorisation, kilométrage, devise et unité de distance. C'est d'ici que part le PDF complet, l'impression, ou le transfert au prochain propriétaire.</p>
+          </div>
+        </div>
 
-  <div class="card ok">
-    <h3>Ce qui ne quitte pas votre iPhone</h3>
-    <p>Les <strong>photos de véhicules et de factures</strong> sont stockées dans l'espace privé de l'application et ne sont téléversées nulle part. La <strong>reconnaissance de texte</strong> des factures s'exécute entièrement sur l'appareil.</p>
-  </div>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="6 sur 8 : Références">
+          <img src="img/shots/references.jpg" alt="Références techniques d'un véhicule : pressions des pneus, référence du filtre à air, huile moteur." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">Références</span>
+            <h3>Ce qu'on cherche toujours</h3>
+            <p>Pression des pneus avant et arrière, référence exacte du filtre, viscosité et quantité d'huile. Noté une fois, retrouvé au bon moment.</p>
+          </div>
+        </div>
 
-  <div class="card">
-    <h3>Ce qui est synchronisé</h3>
-    <p>Vos véhicules, entretiens, tâches, références et garages sont enregistrés sur Cloud Firestore pour que vous les retrouviez après une réinstallation. L'accès est cloisonné par compte, côté serveur.</p>
-    <p>Ni publicité, ni traceur, ni mesure d'audience, ni revente de données. Le détail complet figure dans la <a href="privacy.html">politique de confidentialité</a>.</p>
-  </div>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="7 sur 8 : À faire">
+          <img src="img/shots/todo.jpg" alt="Liste de tâches à faire sur un véhicule, avec des niveaux d'urgence et une tâche terminée." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">À faire</span>
+            <h3>Le bruit suspect de mardi</h3>
+            <p>Un doute se note tout de suite, avec son niveau d'urgence, et se traite au prochain passage. Une tâche terminée bascule dans l'historique.</p>
+          </div>
+        </div>
 
-  <h2 id="compatibilite">Bon à savoir</h2>
+        <div class="slide" role="group" aria-roledescription="diapositive" aria-label="8 sur 8 : Garages">
+          <img src="img/shots/garages.jpg" alt="Carnet d'adresses des garages et prestataires avec leur téléphone et leur adresse." width="640" height="814" loading="lazy">
+          <div class="slide-text">
+            <span class="eyebrow">Garages</span>
+            <h3>Vos prestataires</h3>
+            <p>Téléphone, adresse, e-mail. Chaque garage se rattache aux entretiens qu'il a réalisés, et son numéro reste à portée de pouce.</p>
+          </div>
+        </div>
 
-  <table>
-    <tr><td>Prix</td><td>Gratuit. Aucun achat intégré, aucun abonnement.</td></tr>
-    <tr><td>Véhicules</td><td>Deux véhicules actifs. Les véhicules transférés passent en « Anciens » et ne comptent plus.</td></tr>
-    <tr><td>Appareils</td><td>iPhone. L'application s'installe sur iPad en mode de compatibilité iPhone.</td></tr>
-    <tr><td>Connexion</td><td>Sign in with Apple ou Google. Pas de mot de passe à gérer.</td></tr>
-    <tr><td>Langues</td><td>Français et anglais, au choix dans les paramètres de l'application.</td></tr>
-    <tr><td>Thème</td><td>Clair, sombre, ou automatique selon les réglages du téléphone.</td></tr>
-    <tr><td>Devises</td><td>€, $, £ et CHF, au choix pour chaque véhicule.</td></tr>
-    <tr><td>Distances</td><td>Kilomètres ou miles, au choix pour chaque véhicule.</td></tr>
-  </table>
-
-  <h2 id="faq">Questions fréquentes</h2>
-
-  <div class="faq">
-    <details>
-      <summary>Combien coûte l'application ?</summary>
-      <div class="answer">
-        <p>Rien. Il n'y a ni achat intégré, ni abonnement, ni publicité. L'application suit deux véhicules actifs.</p>
       </div>
-    </details>
-    <details>
-      <summary>Mes photos sont-elles envoyées sur Internet ?</summary>
-      <div class="answer">
-        <p>Non. Les photos de véhicules et de factures restent sur votre appareil et ne sont téléversées nulle part — y compris lors d'un transfert de véhicule, où elles ne sont pas transmises. Voir la <a href="privacy.html">politique de confidentialité</a>.</p>
-      </div>
-    </details>
-    <details>
-      <summary>Comment fonctionnent les échéances ?</summary>
-      <div class="answer">
-        <p>Vous définissez, pour chaque type d'entretien, une périodicité en mois, en kilomètres, ou les deux. L'application part du dernier entretien enregistré et du kilométrage courant du véhicule, puis retient <strong>la première des deux échéances</strong> à tomber. Un préavis réglable déclenche la notification avant l'échéance.</p>
-      </div>
-    </details>
-    <details>
-      <summary>Que se passe-t-il si je change de téléphone ?</summary>
-      <div class="answer">
-        <p>Vos véhicules, entretiens, tâches, références et garages reviennent dès que vous vous reconnectez : ils sont synchronisés. Les photos, elles, sont stockées sur l'appareil — elles suivent une restauration depuis une sauvegarde iCloud ou iTunes, mais pas une installation neuve sur un téléphone vierge.</p>
-      </div>
-    </details>
-    <details>
-      <summary>Comment supprimer mon compte et mes données ?</summary>
-      <div class="answer">
-        <p>Dans l'application : <strong>Paramètres → Compte → Supprimer mon compte</strong>. Après une double confirmation, la suppression est immédiate et définitive — compte, données synchronisées et photos locales.</p>
-      </div>
-    </details>
-  </div>
 
-  <p><a class="btn" href="support.html">Toutes les questions →</a></p>
+      <div class="carousel-nav">
+        <div class="arrows">
+          <button class="arrow" type="button" data-prev aria-label="Capture précédente">‹</button>
+          <button class="arrow" type="button" data-next aria-label="Capture suivante">›</button>
+        </div>
+        <div class="dots" data-dots></div>
+        <span class="counter" data-counter aria-hidden="true"></span>
+      </div>
+    </div>
+  </section>
 
-  <h2 id="contact">Une question ?</h2>
-  <p>Écrivez à <a href="mailto:contact.chamallaw@gmail.com">contact.chamallaw@gmail.com</a>, ou consultez la <a href="support.html">page d'assistance</a> pour les problèmes courants.</p>
+  <section class="section">
+    <span class="eyebrow">Fonctions</span>
+    <h2>Ce que fait l'application</h2>
 
-</div>
+    <div class="rows">
+      <div class="row">
+        <div class="row-ico">🚗</div>
+        <div><h3>Suivi multi-véhicules</h3><p>Voiture, moto, utilitaire. Identité, motorisation, kilométrage et photos.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">🔧</div>
+        <div><h3>Historique d'entretien</h3><p>Date, kilométrage, coût, garage, pièces posées, commentaire et photo de la facture.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">⏱</div>
+        <div><h3>Échéances automatiques</h3><p>Calculées en mois <em>et</em> en kilomètres. La première des deux échues déclenche l'alerte.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">🔔</div>
+        <div><h3>Rappels</h3><p>Notification avant la date ou le kilométrage, avec un préavis réglable par type d'entretien.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">📷</div>
+        <div><h3>Scan de factures</h3><p>La reconnaissance de texte tourne <strong>sur l'appareil</strong>. Aucune image n'est envoyée ailleurs.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">📄</div>
+        <div><h3>Export PDF</h3><p>Un carnet complet à partager ou imprimer. L'argument qui rassure un acheteur.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">📋</div>
+        <div><h3>Tâches et références</h3><p>Ce qui reste à faire, et les données techniques : pressions, filtres, huile.</p></div>
+      </div>
+      <div class="row">
+        <div class="row-ico">🤝</div>
+        <div><h3>Transfert de véhicule</h3><p>Le jour de la vente, cédez la fiche et son historique au nouveau propriétaire.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Prise en main</span>
+    <h2>Comment ça marche</h2>
+
+    <ol class="steps">
+      <li><b>Créez votre compte en deux touches</b>Connexion avec Apple ou Google. Ni mot de passe à retenir, ni formulaire à remplir.</li>
+      <li><b>Ajoutez un véhicule</b>Marque, modèle, immatriculation, kilométrage. Le reste est facultatif et se complète plus tard.</li>
+      <li><b>Définissez ses entretiens</b>Un jeu de types courants se charge d'un seul geste, puis s'ajuste à votre véhicule.</li>
+      <li><b>Enregistrez ce que vous faites</b>Chaque intervention met à jour le kilométrage et recalcule les échéances suivantes.</li>
+      <li><b>Laissez l'application vous prévenir</b>Elle vous rappelle ce qui arrive à terme, et sort le carnet PDF quand vous en avez besoin.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Confidentialité</span>
+    <h2>Vos données vous appartiennent</h2>
+
+    <div class="card card-ok">
+      <h3>Ce qui ne quitte pas votre iPhone</h3>
+      <p>Les <strong>photos de véhicules et de factures</strong> sont stockées dans l'espace privé de l'application et ne sont téléversées nulle part. La <strong>reconnaissance de texte</strong> des factures s'exécute entièrement sur l'appareil.</p>
+    </div>
+
+    <div class="card">
+      <h3>Ce qui est synchronisé</h3>
+      <p>Vos véhicules, entretiens, tâches, références et garages sont enregistrés sur Cloud Firestore pour que vous les retrouviez après une réinstallation. L'accès est cloisonné par compte, côté serveur.</p>
+      <p>Ni publicité, ni traceur, ni mesure d'audience, ni revente de données. Le détail figure dans la <a href="privacy.html">politique de confidentialité</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Pratique</span>
+    <h2>Bon à savoir</h2>
+
+    <table>
+      <tr><td>Prix</td><td>Gratuit. Aucun achat intégré, aucun abonnement.</td></tr>
+      <tr><td>Véhicules</td><td>Deux véhicules actifs. Les véhicules transférés passent en « Anciens » et ne comptent plus.</td></tr>
+      <tr><td>Appareils</td><td>iPhone. L'application s'installe sur iPad en mode de compatibilité iPhone.</td></tr>
+      <tr><td>Connexion</td><td>Sign in with Apple ou Google. Pas de mot de passe à gérer.</td></tr>
+      <tr><td>Langues</td><td>Français et anglais, au choix dans les paramètres de l'application.</td></tr>
+      <tr><td>Thème</td><td>Clair, sombre, ou automatique selon les réglages du téléphone.</td></tr>
+      <tr><td>Devises</td><td>€, $, £ et CHF, au choix pour chaque véhicule.</td></tr>
+      <tr><td>Distances</td><td>Kilomètres ou miles, au choix pour chaque véhicule.</td></tr>
+    </table>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Questions</span>
+    <h2>Les plus fréquentes</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Combien coûte l'application ?</summary>
+        <div class="answer"><p>Rien. Il n'y a ni achat intégré, ni abonnement, ni publicité. L'application suit deux véhicules actifs.</p></div>
+      </details>
+      <details>
+        <summary>Mes photos sont-elles envoyées sur Internet ?</summary>
+        <div class="answer"><p>Non. Les photos de véhicules et de factures restent sur votre appareil et ne sont téléversées nulle part — y compris lors d'un transfert de véhicule, où elles ne sont pas transmises. Voir la <a href="privacy.html">politique de confidentialité</a>.</p></div>
+      </details>
+      <details>
+        <summary>Comment fonctionnent les échéances ?</summary>
+        <div class="answer"><p>Vous définissez, pour chaque type d'entretien, une périodicité en mois, en kilomètres, ou les deux. L'application part du dernier entretien enregistré et du kilométrage courant, puis retient <strong>la première des deux échéances</strong> à tomber. Un préavis réglable déclenche la notification avant l'échéance.</p></div>
+      </details>
+      <details>
+        <summary>Que se passe-t-il si je change de téléphone ?</summary>
+        <div class="answer"><p>Vos véhicules, entretiens, tâches, références et garages reviennent dès que vous vous reconnectez : ils sont synchronisés. Les photos, elles, sont stockées sur l'appareil — elles suivent une restauration depuis une sauvegarde iCloud ou iTunes, mais pas une installation neuve sur un téléphone vierge.</p></div>
+      </details>
+      <details>
+        <summary>Comment supprimer mon compte et mes données ?</summary>
+        <div class="answer"><p>Dans l'application : <strong>Paramètres → Compte → Supprimer mon compte</strong>. Après une double confirmation, la suppression est immédiate et définitive — compte, données synchronisées et photos locales.</p></div>
+      </details>
+    </div>
+
+    <p class="btns"><a class="btn" href="support.html">Toutes les questions</a><a class="btn btn-ghost" href="mailto:contact.chamallaw@gmail.com">Nous écrire</a></p>
+  </section>
 
 </main>
 
@@ -224,6 +254,8 @@
     CarCare · <a href="index.html">Accueil</a> · <a href="support.html">Assistance</a> · <a href="privacy.html">Confidentialité</a>
   </div>
 </footer>
+
+<script src="carousel.js" defer></script>
 
 </body>
 </html>
